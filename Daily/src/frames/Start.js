@@ -4,7 +4,7 @@ import {Text} from 'react-native-ui-lib';
 import {imgs} from '../assets';
 import {BLUE_HEAVY, WHITE} from '../utils/colors';
 import {DeviceWidth, DeviceHeight} from '../utils/device';
-const Start = () => {
+const Start = ({navigation}) => {
   return (
     <View style={styles.container}>
       <View style={styles.imgContainer}>
@@ -13,15 +13,18 @@ const Start = () => {
       <View style={styles.header}>
         <Image source={imgs.logo} style={styles.logo} resizeMode="contain" />
         <Text numberOfLines={2} center styles={styles.motto}>
-          {`Plan what you will do to be more organized for today, tomorrow and beyond`}
+          {
+            'Plan what you will do to be more organized for today, tomorrow and beyond'
+          }
         </Text>
       </View>
-      <View styles={styles.buttons}>
-        <TouchableOpacity style={styles.buttonLogin}>
-          <Text style={styles.login}>Login</Text>
-        </TouchableOpacity>
-        <TouchableOpacity style={styles.buttonSignup}>
-          <Text>Sign Up</Text>
+      <View style={styles.buttons}>
+        <TouchableOpacity
+          style={styles.buttonLogin}
+          onPress={() => {
+            navigation.navigate('TabBar');
+          }}>
+          <Text style={styles.login}>Get Started</Text>
         </TouchableOpacity>
       </View>
     </View>
