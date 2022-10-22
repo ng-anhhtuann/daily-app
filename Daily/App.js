@@ -1,9 +1,13 @@
 import React from 'react';
 import {NavigationContainer} from '@react-navigation/native';
 import {createNativeStackNavigator} from '@react-navigation/native-stack';
-import {SafeAreaView, StyleSheet} from 'react-native';
+import {SafeAreaView, StyleSheet, View} from 'react-native';
 
 import Start from './src/frames/Start';
+import TabBar from './src/frames/homes/TabBar';
+// import {WHITE} from './src/utils/colors';
+// import {DeviceWidth} from './src/utils/device';
+
 const Stack = createNativeStackNavigator();
 class App extends React.Component {
   render() {
@@ -11,22 +15,22 @@ class App extends React.Component {
       <SafeAreaView style={styles.container}>
         <NavigationContainer>
           <Stack.Navigator
+            initialRouteName="TabBar"
             screenOptions={{
-              header: undefined,
-              headerTitle: null,
               headerShown: false,
             }}>
             <Stack.Screen name="Start" component={Start} />
+            <Stack.Screen name="TabBar" component={TabBar} />
           </Stack.Navigator>
         </NavigationContainer>
       </SafeAreaView>
     );
   }
 }
-
 const styles = StyleSheet.create({
   container: {
     flex: 1,
+    // backgroundColor: 'red',
   },
 });
 export default App;
