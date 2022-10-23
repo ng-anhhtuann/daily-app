@@ -14,6 +14,8 @@ const ttask = require('./ttask.png');
 const thome = require('./thome.png');
 const tprofile = require('./tprofile.png');
 const tgraphic = require('./tgraphic.png');
+const imac = require('./imac.png');
+const note = require('./note.png');
 
 export const imgs = {
   splash,
@@ -26,6 +28,8 @@ export const imgs = {
   ftask,
   add_task,
   ongoing,
+  imac,
+  note,
   pending,
   cancel,
   ttask,
