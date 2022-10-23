@@ -11,7 +11,7 @@ import {
 } from 'react-native';
 
 import {DeviceWidth, DeviceHeight} from '../../utils/device';
-import {WHITE, PURPLE_HEAVY, GREY_TEXT} from '../../utils/colors';
+import {WHITE, PURPLE_HEAVY, GREY_TEXT, GREY_WEAK} from '../../utils/colors';
 import {imgs} from '../../assets/index';
 import HeaderProfile from '../../shared/HeaderProfile';
 import Compilation from '../../shared/Compilation';
@@ -21,7 +21,7 @@ const Home = () => {
     userName: 'Steven',
     onPress: null,
   });
-  //prevent re-render view in screen
+
   const renderHeader = useMemo(() => {
     return (
       <HeaderProfile
@@ -34,6 +34,9 @@ const Home = () => {
       />
     );
   }, [userInfo.userName]);
+  const sendAlert = message => {
+    alert(message);
+  };
   return (
     <ScrollView style={styles.container}>
       {renderHeader}
@@ -53,6 +56,10 @@ const Home = () => {
         onGoingPressed={() => {
           alert('On going');
         }}
+        numberOfCompletedTasks={0}
+        numberOfCanceledTasks={0}
+        numberOfPendingTasks={0}
+        numberOfOnTasks={0}
       />
       <View style={styles.todayView}>
         <Text style={styles.todayText}>Today</Text>
@@ -60,19 +67,16 @@ const Home = () => {
           <Text style={styles.viewText}>View</Text>
         </TouchableOpacity>
       </View>
-      <View
-        style={{
-          top: DeviceHeight * 0.015,
-          backgroundColor: 'blue',
-          height: DeviceHeight * 0.2,
-          width: '100%',
-        }}>
-        <Image />
-      </View>
+      <View style={styles.todoContainer}>{/* <View */}</View>
     </ScrollView>
   );
 };
 const styles = StyleSheet.create({
+  todoContainer: {
+    flex: 1,
+    top: DeviceHeight * 0.015,
+    width: '100%',
+  },
   todayText: {
     fontSize: DeviceHeight * 0.035,
     color: PURPLE_HEAVY,

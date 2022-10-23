@@ -1,55 +1,147 @@
+/* eslint-disable react-native/no-inline-styles */
 import React, {useState} from 'react';
-import {TouchableOpacity, View, Image, StyleSheet} from 'react-native';
+import {
+  TouchableOpacity,
+  View,
+  Image,
+  Text,
+  StyleSheet,
+  ImageBackground,
+} from 'react-native';
 import {imgs} from '../assets';
 import {GREY_TEXT, PURPLE_HEAVY, WHITE} from '../utils/colors';
 import {DeviceHeight, DeviceWidth} from '../utils/device';
 import CompilationItem from './CompilationItem';
-import CompilationItems from './CompilationItem';
+import {CancelIcon, PendingIcon} from './svgs';
 
 const Compilation = ({
   onCompletePressed,
   onCancelPressed,
   onPendingPressed,
   onGoingPressed,
+  numberOfCompletedTasks,
+  numberOfCanceledTasks,
+  numberOfPendingTasks,
+  numberOfOnTasks,
 }) => {
   return (
     <View style={styles.compilationWrap}>
       <View style={styles.sideCompilation}>
         <CompilationItem
-          imgStyle={styles.squareImg}
+          buttonStyle={[styles.squareImg, styles.marginBottomStyle]}
           onPress={onCompletePressed}
-          source={imgs.complete}
-          containerStyle={styles.marginVertical}
+          background={imgs.complete}
+          textStyle={styles.textCompilationBlack}
+          title={'Complete'}
+          hasImg
+          number={numberOfCompletedTasks}
+          backgroundStyle={styles.imageBackground}
+          iconHolderStyle={styles.rowDirection}
+          forwardColor={PURPLE_HEAVY}
+          textHolder={styles.textHolder}
+          imageSrc={
+            <Image
+              source={imgs.imac}
+              style={styles.iconInside}
+              resizeMode="contain"
+            />
+          }
         />
         <CompilationItem
-          imgStyle={styles.rectangleImg}
+          buttonStyle={styles.rectangleImg}
           onPress={onCancelPressed}
-          source={imgs.cancel}
-          containerStyle={styles.emptyStyle}
+          background={imgs.cancel}
+          forwardColor={WHITE}
+          hasImg={false}
+          textStyle={styles.textCompilationWhite}
+          title={'Cancel'}
+          number={numberOfCanceledTasks}
+          backgroundStyle={styles.imageBackground}
+          iconHolderStyle={styles.rowDirection}
+          textHolder={styles.textHolder}
+          imageSrc={<CancelIcon />}
         />
       </View>
       <View style={styles.sideCompilation}>
         <CompilationItem
-          imgStyle={styles.rectangleImg}
+          buttonStyle={[styles.rectangleImg, styles.marginBottomStyle]}
           onPress={onPendingPressed}
-          source={imgs.pending}
-          containerStyle={styles.marginVertical}
+          background={imgs.pending}
+          forwardColor={WHITE}
+          textStyle={styles.textCompilationWhite}
+          title={'Pending'}
+          number={numberOfPendingTasks}
+          backgroundStyle={styles.imageBackground}
+          hasImg={false}
+          iconHolderStyle={styles.rowDirection}
+          textHolder={styles.textHolder}
+          imageSrc={<PendingIcon />}
         />
         <CompilationItem
-          imgStyle={styles.squareImg}
+          buttonStyle={styles.squareImg}
           onPress={onGoingPressed}
-          source={imgs.ongoing}
-          containerStyle={styles.emptyStyle}
+          background={imgs.ongoing}
+          textStyle={styles.textCompilationBlack}
+          title={'On'}
+          hasImg
+          number={numberOfOnTasks}
+          backgroundStyle={styles.imageBackground}
+          iconHolderStyle={styles.rowDirection}
+          forwardColor={PURPLE_HEAVY}
+          textHolder={styles.textHolder}
+          imageSrc={
+            <Image
+              source={imgs.note}
+              style={styles.iconInside}
+              resizeMode="contain"
+            />
+          }
         />
       </View>
     </View>
   );
 };
 const styles = StyleSheet.create({
+  textHolder: {
+    flex: 1,
+    justifyContent: 'space-between',
+  },
+  iconInside: {
+    height: DeviceWidth * 0.175,
+    width: DeviceWidth * 0.175,
+  },
+  rowDirection: {
+    flexDirection: 'row',
+    flex: 1,
+    justifyContent: 'space-between',
+  },
+  imageBackground: {
+    flex: 1,
+    padding: 15,
+  },
   emptyStyle: {},
+  textCompilationBlack: {
+    height: '50%',
+    color: PURPLE_HEAVY,
+    fontSize: DeviceHeight * 0.02,
+  },
+  textCompilationWhite: {
+    color: WHITE,
+    height: '50%',
+    fontSize: DeviceHeight * 0.02,
+  },
+  imac: {
+    flex: 1,
+    width: '100%',
+    height: '100%',
+  },
   squareImg: {
     width: '100%',
     height: DeviceWidth * 0.42,
+    borderRadius: 10,
+  },
+  marginBottomStyle: {
+    marginBottom: DeviceHeight * 0.015,
   },
   rectangleImg: {
     width: '100%',
