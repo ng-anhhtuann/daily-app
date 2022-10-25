@@ -111,7 +111,6 @@ const styles = StyleSheet.create({
     borderBottomColor: WHITE,
     borderTopColor: WHITE,
     position: 'absolute',
-    backgroundColor: '#ffff99',
   },
 });
 export default TabBar;

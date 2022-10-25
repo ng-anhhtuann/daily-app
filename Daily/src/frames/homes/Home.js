@@ -11,17 +11,31 @@ import {
 } from 'react-native';
 
 import {DeviceWidth, DeviceHeight} from '../../utils/device';
-import {WHITE, PURPLE_HEAVY, GREY_TEXT, GREY_WEAK} from '../../utils/colors';
+import {
+  WHITE,
+  PURPLE_HEAVY,
+  GREY_TEXT,
+  GREY_WEAK,
+  PURPLE,
+  TEXT,
+  TEXT_WEAK,
+  PURPLE_WEAK,
+  GREY,
+  RED_FADE,
+  RED_BG,
+} from '../../utils/colors';
 import {imgs} from '../../assets/index';
 import HeaderProfile from '../../shared/HeaderProfile';
 import Compilation from '../../shared/Compilation';
+import {SettingDots} from '../../shared/svgs';
+import TaskItem from '../../shared/TaskItem';
 
 const Home = () => {
   const [userInfo, setUserInfo] = useState({
     userName: 'Steven',
     onPress: null,
   });
-
+  const [isComing, setIsComing] = useState(false);
   const renderHeader = useMemo(() => {
     return (
       <HeaderProfile
@@ -34,9 +48,6 @@ const Home = () => {
       />
     );
   }, [userInfo.userName]);
-  const sendAlert = message => {
-    alert(message);
-  };
   return (
     <ScrollView style={styles.container}>
       {renderHeader}
@@ -67,15 +78,112 @@ const Home = () => {
           <Text style={styles.viewText}>View</Text>
         </TouchableOpacity>
       </View>
-      <View style={styles.todoContainer}>{/* <View */}</View>
+      <View>
+        <TaskItem
+          todoItemStyle={styles.todoItemStyle}
+          titleMerge={styles.titleMergeComing}
+          titleTextContainer={styles.titleTextContainer}
+          titleText={styles.titleText}
+          timeText={styles.timeText}
+          tagContainer={styles.tagContainer}
+          textTagStyle={styles.textTagStyle}
+          settingStyle={styles.settingStyle}
+          titleTodo={'Cleaning Clothes'}
+          startTime={'07:00'}
+          endTime={'07:15'}
+          nameTag={'Home'}
+          upComing={true}
+        />
+        <TaskItem
+          todoItemStyle={styles.todoItemStyle}
+          titleMerge={styles.titleMergeNotYet}
+          titleTextContainer={styles.titleTextContainer}
+          titleText={styles.titleText}
+          timeText={styles.timeText}
+          tagContainer={styles.tagContainerNotYet}
+          textTagStyle={styles.textTagStyleNotYet}
+          settingStyle={styles.settingStyle}
+          titleTodo={'Cleaning Clothes'}
+          startTime={'07:00'}
+          endTime={'07:15'}
+          nameTag={'Urgent'}
+          upComing={true}
+        />
+      </View>
     </ScrollView>
   );
 };
 const styles = StyleSheet.create({
-  todoContainer: {
-    flex: 1,
+  settingStyle: {
+    height: '25%',
+    width: '5%',
+    justifyContent: 'center',
+    alignItems: 'center',
+  },
+  textTagStyle: {
+    color: PURPLE,
+    fontSize: DeviceHeight * 0.012,
+    height: 15,
+    textAlign: 'center',
+  },
+  tagContainer: {
+    backgroundColor: PURPLE_WEAK,
+    height: '50%',
+    width: 'auto',
+    marginRight: 5,
+    justifyContent: 'center',
+    borderRadius: 5,
+    padding: 5,
+  },
+  textTagStyleNotYet: {
+    color: RED_FADE,
+    fontSize: DeviceHeight * 0.012,
+    height: 15,
+    textAlign: 'center',
+  },
+  tagContainerNotYet: {
+    backgroundColor: RED_BG,
+    height: '50%',
+    width: 'auto',
+    marginRight: 5,
+    justifyContent: 'center',
+    borderRadius: 5,
+    padding: 5,
+  },
+  timeText: {color: TEXT_WEAK, fontSize: DeviceHeight * 0.02},
+  titleText: {
+    color: TEXT,
+    fontSize: DeviceHeight * 0.02,
+  },
+  titleTextContainer: {
+    left: 10,
+    justifyContent: 'space-between',
+    height: '100%',
+    width: '95%',
+  },
+  titleMergeComing: {
+    height: '40%',
+    top: 5,
+    width: 2.5,
+    borderRadius: 3,
+    backgroundColor: PURPLE,
+  },
+  titleMergeNotYet: {
+    height: '40%',
+    top: 5,
+    width: 2.5,
+    borderRadius: 3,
+    backgroundColor: RED_FADE,
+  },
+  todoItemStyle: {
     top: DeviceHeight * 0.015,
     width: '100%',
+    height: DeviceHeight * 0.15,
+    borderRadius: 15,
+    backgroundColor: GREY_WEAK,
+    padding: 15,
+    flexDirection: 'row',
+    marginBottom: DeviceHeight * 0.015,
   },
   todayText: {
     fontSize: DeviceHeight * 0.035,
