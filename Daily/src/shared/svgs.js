@@ -47,4 +47,11 @@ const PendingIcon = props => (
     </G>
   </Svg>
 );
-export {Forward, PendingIcon, CancelIcon};
+const SettingDots = props => (
+  <Svg width={2} height={10} xmlns="http://www.w3.org/2000/svg" {...props}>
+    <G fill="#2C406E" fillRule="nonzero">
+      <Path d="M.381 1.943A.875.875 0 1 1 1 2.199a.875.875 0 0 1-.619-.256ZM.381 5.619A.875.875 0 1 1 1.62 4.38.875.875 0 0 1 .38 5.62ZM.381 9.293a.875.875 0 1 0-.256-.62c0 .233.092.455.256.62Z" />
+    </G>
+  </Svg>
+);
+export {Forward, PendingIcon, CancelIcon, SettingDots};
