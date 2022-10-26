@@ -22,7 +22,7 @@ const TabBar = () => {
         headerShown: false,
         tabBarStyle: styles.tabBar,
       }}
-      initialRouteName={'Home'}>
+      initialRouteName={'Tasks'}>
       <Tab.Screen
         name="Home"
         component={Home}

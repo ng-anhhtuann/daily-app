@@ -5,6 +5,7 @@ import {SafeAreaView, StyleSheet, View} from 'react-native';
 
 import Start from './src/frames/Start';
 import TabBar from './src/frames/homes/TabBar';
+import {WHITE} from './src/utils/colors';
 
 const Stack = createNativeStackNavigator();
 class App extends React.Component {
@@ -28,6 +29,7 @@ class App extends React.Component {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
+    backgroundColor: WHITE,
   },
 });
 export default App;

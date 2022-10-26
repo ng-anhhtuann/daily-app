@@ -10,3 +10,7 @@ export const TEXT = '#2C406E';
 export const TEXT_WEAK = '#9AA8C7';
 export const RED_FADE = '#E88B8C';
 export const RED_BG = '#E88B8C20';
+export const SEARCH_BG = '#F6F6F6';
+export const HIDDEN_TEXT = '#CED0E7';
+export const FADE_TEXT = '#d8d8d8';
+export const BOLD_BLUE_TEXT = '#10275A';
