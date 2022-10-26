@@ -6,7 +6,6 @@ import {
   Text,
   StyleSheet,
   ScrollView,
-  Image,
   TouchableOpacity,
 } from 'react-native';
 
@@ -20,14 +19,11 @@ import {
   TEXT,
   TEXT_WEAK,
   PURPLE_WEAK,
-  GREY,
   RED_FADE,
   RED_BG,
 } from '../../utils/colors';
-import {imgs} from '../../assets/index';
 import HeaderProfile from '../../shared/HeaderProfile';
 import Compilation from '../../shared/Compilation';
-import {SettingDots} from '../../shared/svgs';
 import TaskItem from '../../shared/TaskItem';
 
 const Home = () => {
@@ -92,7 +88,6 @@ const Home = () => {
           startTime={'07:00'}
           endTime={'07:15'}
           nameTag={'Home'}
-          upComing={true}
         />
         <TaskItem
           todoItemStyle={styles.todoItemStyle}
@@ -107,7 +102,6 @@ const Home = () => {
           startTime={'07:00'}
           endTime={'07:15'}
           nameTag={'Urgent'}
-          upComing={true}
         />
       </View>
     </ScrollView>
@@ -198,7 +192,6 @@ const styles = StyleSheet.create({
   todayView: {
     flexDirection: 'row',
     marginTop: DeviceHeight * 0.015,
-    flex: 1,
     alignItems: 'flex-end',
     justifyContent: 'space-between',
   },
@@ -222,7 +215,6 @@ const styles = StyleSheet.create({
     marginTop: DeviceHeight * 0.015,
   },
   container: {
-    flex: 1,
     backgroundColor: WHITE,
     paddingLeft: DeviceWidth * 0.05,
     paddingRight: DeviceWidth * 0.05,
@@ -241,12 +233,10 @@ const styles = StyleSheet.create({
     height: DeviceHeight * 0.075,
   },
   sloganContainer: {
-    flex: 1,
     flexDirection: 'row',
   },
   compilation: {
     marginTop: DeviceHeight * 0.04,
-    flex: 1,
   },
 });
 export default Home;
