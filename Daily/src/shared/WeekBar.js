@@ -1,42 +1,48 @@
 /* eslint-disable react-native/no-inline-styles */
 import React, {useState} from 'react';
-import {View, Text, StyleSheet} from 'react-native';
+import {View, StyleSheet} from 'react-native';
 import {BLUE_HEAVY, WHITE} from '../utils/colors';
 import {DeviceHeight, DeviceWidth} from '../utils/device';
 import DayItem from './DayItem';
+const moment = require('moment');
 const WeekBar = () => {
-  const monDay = 12;
-  const dayWeek = ['MO', 'TU', 'WE', 'TH', 'FR', 'SA', 'SU'];
-  const [press, setPress] = useState(false);
-  const [restPress, setRestPress] = useState(false);
-  const state = [false, false, false, false, false, false, false];
+  var now = moment().isoWeekday() - 1; // 5 - 1 = 4 ( according to pos )
+  let dayWeek = [
+    {title: 'MO', index: 0},
+    {title: 'TU', index: 1},
+    {title: 'WE', index: 2},
+    {title: 'TH', index: 3},
+    {title: 'FR', index: 4},
+    {title: 'SA', index: 5},
+    {title: 'SU', index: 6},
+  ];
+  const tempState = dayWeek.map(val => {
+    return now === val.index;
+  });
+  const [state, setStates] = useState(tempState);
   return (
     <View style={styles.container}>
       {dayWeek.map((day, i) => {
         return (
           <DayItem
-            dayWeek={day}
-            dayMonth={monDay + i}
+            key={`${i}`}
+            dayWeek={day.title}
+            dayMonth={moment()
+              .day(i + 1)
+              .format('DD')} // pos = 0 -> monday <> moment monday -> 1 => i+1
             onPress={() => {
-              if (state[i] === true) {
-              } else {
-                state[i] = true;
-                state.map((val, index) => {
-                  if (val === true && index !== i) {
-                    val = false;
-                  }
-                });
-              }
-              console.log(i);
-              console.log(state);
+              state.map((_val, pos) => {
+                state[pos] = pos === day.index;
+              });
+              setStates([...state]);
             }}
             backgroundStyle={[
               styles.dayStyle,
-              state[i] ? styles.onTouch : styles.empty,
+              state[day.index] ? styles.onTouch : styles.empty,
             ]}
             textStyle={[
               styles.textSize,
-              state[i] ? styles.whiteText : styles.empty,
+              state[day.index] ? styles.whiteText : styles.empty,
             ]}
           />
         );

@@ -3,30 +3,21 @@ import React from 'react';
 import {View, Text, StyleSheet, ScrollView} from 'react-native';
 
 import {DeviceWidth, DeviceHeight} from '../../utils/device';
-import {
-  BLUE_HEAVY,
-  BOLD_BLUE_TEXT,
-  FADE_TEXT,
-  PURPLE_HEAVY,
-  TEXT,
-  WHITE,
-} from '../../utils/colors';
-import {CalendarIcon} from '../../shared/svgs';
-import {TouchableOpacity} from 'react-native-gesture-handler';
+import {BOLD_BLUE_TEXT, FADE_TEXT, WHITE} from '../../utils/colors';
 import SearchEngine from '../../shared/SearchEngine';
 import WeekBar from '../../shared/WeekBar';
+import TaskTitle from '../../shared/TaskTitle';
 
 const Tasks = () => {
   return (
     <ScrollView style={styles.container}>
       <SearchEngine />
-      <View style={styles.taskCalendarHolder}>
-        <Text style={styles.bigText}>Tasks</Text>
-        <TouchableOpacity style={styles.calendarHolder}>
-          <CalendarIcon />
-          <Text style={styles.monthText}>August</Text>
-        </TouchableOpacity>
-      </View>
+      <TaskTitle
+        taskCalendarHolder={styles.taskCalendarHolder}
+        bigText={styles.bigText}
+        calendarHolder={styles.calendarHolder}
+        monthText={styles.monthText}
+      />
       <WeekBar />
     </ScrollView>
   );
@@ -48,7 +39,6 @@ const styles = StyleSheet.create({
     justifyContent: 'space-between',
     alignItems: 'center',
     marginTop: DeviceHeight * 0.025,
-    // backgroundColor: 'green',
   },
   calendarHolder: {
     flexDirection: 'row',
