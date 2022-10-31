@@ -17,20 +17,23 @@ const CategoryItem = ({
       <View style={[styles.iconHolder, {backgroundColor: colorIcon}]}>
         {icon}
       </View>
-      <Text style={styles.title}>{title}</Text>
+      <Text style={styles.title} numberOfLines={2}>
+        {title}
+      </Text>
       <Text style={styles.taskText}>{numberOfTasks} Tasks</Text>
     </TouchableOpacity>
   );
 };
 const styles = StyleSheet.create({
   container: {
-    width: '100%',
-    height: '30%',
-    marginTop: 10,
+    width: DeviceWidth * 0.4,
+    height: DeviceWidth * 0.4,
+    overflow: 'hidden',
+    marginTop: 20,
     borderRadius: 20,
     alignItems: 'center',
     justifyContent: 'space-between',
-    padding: DeviceHeight * 0.025,
+    padding: 20,
   },
   iconHolder: {
     width: DeviceWidth * 0.15,

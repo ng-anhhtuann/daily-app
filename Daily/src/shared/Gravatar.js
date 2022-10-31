@@ -2,10 +2,11 @@ import React from 'react';
 import {View, Image, Text, StyleSheet} from 'react-native';
 import {NAME_TEXT} from '../utils/colors';
 import {DeviceHeight} from '../utils/device';
+import {title} from '../utils/typo';
 
-const Gravatar = ({avatar, name, mail}) => {
+const Gravatar = ({avatar, name, mail, customStyle}) => {
   return (
-    <View style={styles.container}>
+    <View style={[styles.container, customStyle]}>
       <View style={styles.avatarContainer}>
         <Image source={avatar} style={styles.imgStyle} />
       </View>
@@ -16,12 +17,11 @@ const Gravatar = ({avatar, name, mail}) => {
 };
 const styles = StyleSheet.create({
   container: {
-    flex: 2,
     justifyContent: 'space-between',
     alignItems: 'center',
-    marginBottom: DeviceHeight * 0.015,
   },
   avatarContainer: {
+    marginBottom: 15,
     backgroundColor: 'white',
     height: DeviceHeight * 0.1,
     width: DeviceHeight * 0.1,
@@ -32,7 +32,7 @@ const styles = StyleSheet.create({
     shadowRadius: 10,
   },
   imgStyle: {width: '50%', height: '61.6%'},
-  nameStyle: {color: NAME_TEXT, fontSize: DeviceHeight * 0.025},
-  mailStyle: {color: NAME_TEXT, fontSize: DeviceHeight * 0.015},
+  nameStyle: {color: NAME_TEXT, fontSize: title.medium, marginBottom: 15},
+  mailStyle: {color: NAME_TEXT, fontSize: title.text},
 });
 export default Gravatar;

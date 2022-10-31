@@ -66,7 +66,7 @@ const Tasks = () => {
     },
   ];
   return (
-    <ScrollView style={styles.container}>
+    <ScrollView style={styles.container} showsVerticalScrollIndicator={false}>
       <SearchEngine />
       <TaskTitle
         taskCalendarHolder={styles.taskCalendarHolder}
@@ -84,6 +84,7 @@ const Tasks = () => {
       <HorizontalTask timePivot={'08:00'} taskArray={task8Array} />
       <HorizontalTask timePivot={'09:00'} taskArray={task9Array} />
       <HorizontalTask timePivot={'10:00'} taskArray={task10Array} />
+      <View style={{height: DeviceHeight * 0.1}} />
     </ScrollView>
   );
 };

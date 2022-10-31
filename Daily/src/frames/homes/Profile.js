@@ -1,5 +1,5 @@
 import React from 'react';
-import {View, StyleSheet} from 'react-native';
+import {ScrollView, View, StyleSheet} from 'react-native';
 
 import {DeviceWidth, DeviceHeight} from '../../utils/device';
 import {WHITE} from '../../utils/colors';
@@ -10,7 +10,7 @@ import Gravatar from '../../shared/Gravatar';
 
 const Profile = () => {
   return (
-    <View style={styles.container}>
+    <ScrollView style={styles.container} showsVerticalScrollIndicator={false}>
       <SettingButton
         buttonContainer={styles.buttonContainer}
         buttonHolder={styles.buttonHolder}
@@ -19,30 +19,29 @@ const Profile = () => {
         avatar={imgs.profileAvatar}
         name={'Steve Jobs'}
         mail={'SteveJob@gmail.com'}
+        customStyle={undefined}
       />
       <Category
         categoryContainer={styles.categoryContainer}
         sideCategory={styles.sideCategory}
       />
-    </View>
+      <View style={{height: DeviceHeight * 0.1}} />
+    </ScrollView>
   );
 };
 const styles = StyleSheet.create({
-  categoryContainer: {flex: 7, flexDirection: 'row'},
+  categoryContainer: {flexDirection: 'row'},
   sideCategory: {
     width: '50%',
     height: '100%',
     alignItems: 'center',
-    padding: 10,
   },
   container: {
-    flex: 1,
     paddingLeft: DeviceWidth * 0.05,
     paddingRight: DeviceWidth * 0.05,
     backgroundColor: WHITE,
   },
   buttonContainer: {
-    flex: 1,
     justifyContent: 'flex-end',
     alignItems: 'flex-end',
   },

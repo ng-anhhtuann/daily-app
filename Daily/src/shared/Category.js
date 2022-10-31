@@ -1,22 +1,17 @@
 import React from 'react';
-import {View, Text, StyleSheet, TouchableOpacity, Image} from 'react-native';
+import {View} from 'react-native';
 
-import {DeviceWidth, DeviceHeight} from '../utils/device';
 import {
-  BLUE_HEAVY,
   CREATE_BOLD,
   CREATE_FADE,
   EVENT_BOLD,
   EVENT_FADE,
-  GREY_TEXT,
   MEETING_BOLD,
   MEETING_FADE,
-  NAME_TEXT,
   PERSONAL_BOLD,
   PERSONAL_FADE,
   PRIVATE_BOLD,
   PRIVATE_FADE,
-  WHITE,
   WORK_BOLD,
   WORK_FADE,
 } from '../utils/colors.js';

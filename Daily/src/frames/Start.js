@@ -66,7 +66,6 @@ const styles = StyleSheet.create({
   },
   buttons: {
     height: DeviceHeight * 0.2,
-    backgroundColor: 'red',
     justifyContent: 'center',
     alignItems: 'center',
     alignContent: 'center',
