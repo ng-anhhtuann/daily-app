@@ -87,7 +87,7 @@ const Home = () => {
           titleTodo={'Cleaning Clothes'}
           startTime={'07:00'}
           endTime={'07:15'}
-          nameTag={'Home'}
+          nameTag={['Home', 'Urgent']}
         />
         <TaskItem
           todoItemStyle={styles.todoItemStyle}
@@ -101,7 +101,7 @@ const Home = () => {
           titleTodo={'Cleaning Clothes'}
           startTime={'07:00'}
           endTime={'07:15'}
-          nameTag={'Urgent'}
+          nameTag={['Home', 'Urgent']}
         />
       </View>
     </ScrollView>

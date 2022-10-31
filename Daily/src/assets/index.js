@@ -16,6 +16,7 @@ const tprofile = require('./tprofile.png');
 const tgraphic = require('./tgraphic.png');
 const imac = require('./imac.png');
 const note = require('./note.png');
+const profileAvatar = require('./profileAvatar.png');
 
 export const imgs = {
   splash,
@@ -23,6 +24,7 @@ export const imgs = {
   avatar,
   complete,
   fprofile,
+  profileAvatar,
   fgraphic,
   fhome,
   ftask,

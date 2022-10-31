@@ -22,7 +22,7 @@ const TabBar = () => {
         headerShown: false,
         tabBarStyle: styles.tabBar,
       }}
-      initialRouteName={'Tasks'}>
+      initialRouteName={'Profile'}>
       <Tab.Screen
         name="Home"
         component={Home}
@@ -111,6 +111,8 @@ const styles = StyleSheet.create({
     borderBottomColor: WHITE,
     borderTopColor: WHITE,
     position: 'absolute',
+    shadowOpacity: 0.01,
+    shadowRadius: 1,
   },
 });
 export default TabBar;
