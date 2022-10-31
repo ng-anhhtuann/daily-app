@@ -3,7 +3,7 @@ import React from 'react';
 import {TouchableOpacity, View, Text, StyleSheet} from 'react-native';
 import {DeviceHeight} from '../utils/device';
 import {SettingDots} from './svgs';
-import TagTask from './TagTask';
+import Tags from './Tags';
 
 const TaskItem = ({
   todoItemStyle,
@@ -28,7 +28,7 @@ const TaskItem = ({
         </Text>
         <Text style={timeText}>{`${startTime} - ${endTime}`}</Text>
         <View style={styles.columnTagStyle}>
-          <TagTask
+          <Tags
             tagContainer={tagContainer}
             textTagStyle={textTagStyle}
             nameTag={nameTag}
@@ -43,6 +43,9 @@ const TaskItem = ({
 };
 
 const styles = StyleSheet.create({
+  margin: {
+    marginRight: 10,
+  },
   columnTagStyle: {
     flexDirection: 'row',
     width: '100%',
