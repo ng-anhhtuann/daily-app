@@ -31,7 +31,6 @@ const Home = () => {
     userName: 'Steven',
     onPress: null,
   });
-  const [isComing, setIsComing] = useState(false);
   const renderHeader = useMemo(() => {
     return (
       <HeaderProfile
@@ -45,7 +44,7 @@ const Home = () => {
     );
   }, [userInfo.userName]);
   return (
-    <ScrollView style={styles.container}>
+    <ScrollView style={styles.container} showsVerticalScrollIndicator={false}>
       {renderHeader}
       <View style={styles.compilation}>
         <Text style={styles.greeting}>Compilation</Text>
@@ -104,6 +103,7 @@ const Home = () => {
           nameTag={['Home', 'Urgent']}
         />
       </View>
+      <View style={{height: DeviceHeight * 0.1}} />
     </ScrollView>
   );
 };

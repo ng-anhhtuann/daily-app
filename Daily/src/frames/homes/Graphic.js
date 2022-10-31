@@ -1,21 +1,33 @@
+/* eslint-disable react-native/no-inline-styles */
 import React from 'react';
-import {View, Text, StyleSheet} from 'react-native';
+import {ScrollView, View, Text, StyleSheet} from 'react-native';
 
-import {DeviceWidth, DeviceHeight} from '../../utils/device';
-import {BLUE_HEAVY, WHITE} from '../../utils/colors';
+import {BLUE_HEAVY, NAME_TEXT, WHITE} from '../../utils/colors';
+import {DeviceHeight, DeviceWidth} from '../../utils/device';
+import {title} from '../../utils/typo';
 
 const Graphic = () => {
   return (
-    <View style={styles.container}>
-      <Text>asdasdsad</Text>
-    </View>
+    <ScrollView style={styles.container}>
+      <Text
+        style={{
+          color: NAME_TEXT,
+          fontSize: title.medium,
+          textAlign: 'center',
+          marginBottom: title.medium,
+        }}>
+        Graphic
+      </Text>
+      <View
+        style={{height: DeviceHeight * 0.5, width: DeviceWidth * 0.5}}></View>
+    </ScrollView>
   );
 };
 const styles = StyleSheet.create({
   container: {
-    flex: 1,
-    alignItems: 'center',
     backgroundColor: WHITE,
+    paddingRight: DeviceWidth * 0.05,
+    paddingLeft: DeviceWidth * 0.05,
   },
 });
 export default Graphic;
