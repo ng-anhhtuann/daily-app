@@ -6,23 +6,30 @@ import {SafeAreaView, StyleSheet, View} from 'react-native';
 import Start from './src/frames/Start';
 import TabBar from './src/frames/homes/TabBar';
 import {WHITE} from './src/utils/colors';
+import {Provider} from 'react-redux';
+
+import configureStore from './src/redux/config/stores';
+
+const store = configureStore();
 
 const Stack = createNativeStackNavigator();
 class App extends React.Component {
   render() {
     return (
-      <SafeAreaView style={styles.container}>
-        <NavigationContainer>
-          <Stack.Navigator
-            initialRouteName="TabBar"
-            screenOptions={{
-              headerShown: false,
-            }}>
-            <Stack.Screen name="Start" component={Start} />
-            <Stack.Screen name="TabBar" component={TabBar} />
-          </Stack.Navigator>
-        </NavigationContainer>
-      </SafeAreaView>
+      <Provider store={store}>
+        <SafeAreaView style={styles.container}>
+          <NavigationContainer>
+            <Stack.Navigator
+              initialRouteName="TabBar"
+              screenOptions={{
+                headerShown: false,
+              }}>
+              <Stack.Screen name="Start" component={Start} />
+              <Stack.Screen name="TabBar" component={TabBar} />
+            </Stack.Navigator>
+          </NavigationContainer>
+        </SafeAreaView>
+      </Provider>
     );
   }
 }

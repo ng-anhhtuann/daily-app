@@ -7,6 +7,7 @@ import {imgs} from '../../assets';
 import Category from '../../shared/Category';
 import SettingButton from '../../shared/SettingButton';
 import Gravatar from '../../shared/Gravatar';
+import {useSelector} from 'react-redux';
 
 const Profile = () => {
   return (

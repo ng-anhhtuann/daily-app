@@ -1,13 +1,6 @@
-/* eslint-disable react-native/no-inline-styles */
 import React, {useState} from 'react';
-import {
-  TouchableOpacity,
-  View,
-  Image,
-  Text,
-  StyleSheet,
-  ImageBackground,
-} from 'react-native';
+import {View, Image, StyleSheet} from 'react-native';
+import {useSelector} from 'react-redux';
 import {imgs} from '../assets';
 import {GREY_TEXT, PURPLE_HEAVY, WHITE} from '../utils/colors';
 import {DeviceHeight, DeviceWidth} from '../utils/device';
@@ -24,6 +17,11 @@ const Compilation = ({
   numberOfPendingTasks,
   numberOfOnTasks,
 }) => {
+  const testReducer = useSelector(state => state.testReducer);
+  const complete = testReducer.complete;
+  const cancel = testReducer.cancel;
+  const pending = testReducer.pending;
+  const on = testReducer.on;
   return (
     <View style={styles.compilationWrap}>
       <View style={styles.sideCompilation}>
@@ -34,7 +32,7 @@ const Compilation = ({
           textStyle={styles.textCompilationBlack}
           title={'Complete'}
           hasImg
-          number={numberOfCompletedTasks}
+          number={complete}
           backgroundStyle={styles.imageBackground}
           iconHolderStyle={styles.rowDirection}
           forwardColor={PURPLE_HEAVY}
@@ -55,7 +53,7 @@ const Compilation = ({
           hasImg={false}
           textStyle={styles.textCompilationWhite}
           title={'Cancel'}
-          number={numberOfCanceledTasks}
+          number={cancel}
           backgroundStyle={styles.imageBackground}
           iconHolderStyle={styles.rowDirection}
           textHolder={styles.textHolder}
@@ -70,7 +68,7 @@ const Compilation = ({
           forwardColor={WHITE}
           textStyle={styles.textCompilationWhite}
           title={'Pending'}
-          number={numberOfPendingTasks}
+          number={pending}
           backgroundStyle={styles.imageBackground}
           hasImg={false}
           iconHolderStyle={styles.rowDirection}
@@ -84,7 +82,7 @@ const Compilation = ({
           textStyle={styles.textCompilationBlack}
           title={'On'}
           hasImg
-          number={numberOfOnTasks}
+          number={on}
           backgroundStyle={styles.imageBackground}
           iconHolderStyle={styles.rowDirection}
           forwardColor={PURPLE_HEAVY}

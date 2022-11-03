@@ -29,3 +29,7 @@ export const CREATE_BOLD = '#F0A58E';
 export const CREATE_FADE = '#FFEFEB';
 export const EVENT_BOLD = '#858FE9';
 export const EVENT_FADE = '#E0E3F9';
+export const SECRET = '#7EC8E7';
+export const PRIVATE = '#8F99EB';
+export const PERSONAL = '#E88B8C';
+export const TEXT_FADE = '#8586A9';

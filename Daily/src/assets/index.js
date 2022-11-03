@@ -17,11 +17,13 @@ const tgraphic = require('./tgraphic.png');
 const imac = require('./imac.png');
 const note = require('./note.png');
 const profileAvatar = require('./profileAvatar.png');
+const stribeLine = require('./stribeLine.png');
 
 export const imgs = {
   splash,
   logo,
   avatar,
+  stribeLine,
   complete,
   fprofile,
   profileAvatar,
