@@ -7,6 +7,7 @@ import {
   View,
   Text,
 } from 'react-native';
+import {useSelector} from 'react-redux';
 import {imgs} from '../assets';
 import {DeviceHeight, DeviceWidth} from '../utils/device';
 import {Forward} from './svgs';

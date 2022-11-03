@@ -25,8 +25,20 @@ import {
 import HeaderProfile from '../../shared/HeaderProfile';
 import Compilation from '../../shared/Compilation';
 import TaskItem from '../../shared/TaskItem';
+import {useDispatch, useSelector} from 'react-redux';
+import {
+  increaseCancel,
+  increaseComplete,
+  increaseOn,
+  increasePending,
+} from '../../redux/actions/pageList';
 
-const Home = () => {
+const Home = props => {
+  // @ts-ignore
+  const test = useSelector(state => state.testReducer);
+  console.log(test);
+  const dispatch = useDispatch();
+
   const [userInfo, setUserInfo] = useState({
     userName: 'Steven',
     onPress: null,
@@ -51,16 +63,16 @@ const Home = () => {
       </View>
       <Compilation
         onCompletePressed={() => {
-          alert('Complete');
+          dispatch(increaseComplete(0));
         }}
         onCancelPressed={() => {
-          alert('Cancel');
+          dispatch(increaseCancel(0));
         }}
         onPendingPressed={() => {
-          alert('Pending');
+          dispatch(increasePending(0));
         }}
         onGoingPressed={() => {
-          alert('On going');
+          dispatch(increaseOn(0));
         }}
         numberOfCompletedTasks={0}
         numberOfCanceledTasks={0}

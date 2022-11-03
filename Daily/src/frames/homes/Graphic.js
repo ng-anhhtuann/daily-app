@@ -1,25 +1,26 @@
-/* eslint-disable react-native/no-inline-styles */
 import React from 'react';
-import {ScrollView, View, Text, StyleSheet} from 'react-native';
+import {ScrollView, View, Text, StyleSheet, Image} from 'react-native';
+import {useSelector} from 'react-redux';
+import {imgs} from '../../assets';
+import Header from '../../shared/Header';
+import Priority from '../../shared/Priority';
 
-import {BLUE_HEAVY, NAME_TEXT, WHITE} from '../../utils/colors';
-import {DeviceHeight, DeviceWidth} from '../../utils/device';
+import {NAME_TEXT, WHITE} from '../../utils/colors';
+import {DeviceWidth} from '../../utils/device';
 import {title} from '../../utils/typo';
 
 const Graphic = () => {
   return (
     <ScrollView style={styles.container}>
-      <Text
-        style={{
-          color: NAME_TEXT,
-          fontSize: title.medium,
-          textAlign: 'center',
-          marginBottom: title.medium,
-        }}>
-        Graphic
-      </Text>
-      <View
-        style={{height: DeviceHeight * 0.5, width: DeviceWidth * 0.5}}></View>
+      <Header
+        title={'Graphic'}
+        titleStyle={[styles.title, styles.marginBottom]}
+      />
+      <Priority />
+      <Header
+        title={'Your Activity'}
+        titleStyle={[styles.activity, styles.marginTop]}
+      />
     </ScrollView>
   );
 };
@@ -28,6 +29,19 @@ const styles = StyleSheet.create({
     backgroundColor: WHITE,
     paddingRight: DeviceWidth * 0.05,
     paddingLeft: DeviceWidth * 0.05,
+  },
+  marginTop: {marginTop: title.big},
+  marginBottom: {
+    marginBottom: title.medium,
+  },
+  activity: {
+    color: NAME_TEXT,
+    fontSize: title.medium,
+  },
+  title: {
+    color: NAME_TEXT,
+    fontSize: title.medium,
+    textAlign: 'center',
   },
 });
 export default Graphic;
