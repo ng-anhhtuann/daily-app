@@ -196,7 +196,37 @@ const ProfileSettingIcon = props => (
     </G>
   </Svg>
 );
+const BackButton = props => (
+  <Svg width={12} height={14} xmlns="http://www.w3.org/2000/svg" {...props}>
+    <Path
+      d="M8.917 12.833S3.083 9.379 3.083 6.999c0-1.586 1.945-3.53 5.834-5.833"
+      stroke="#10275A"
+      strokeWidth={1.5}
+      fill="none"
+      fillRule="evenodd"
+      strokeDasharray="0,0"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+    />
+  </Svg>
+);
+const NextButton = props => (
+  <Svg width={8} height={14} xmlns="http://www.w3.org/2000/svg" {...props}>
+    <Path
+      d="M1.083 1.167s5.834 3.454 5.834 5.834c0 1.586-1.945 3.53-5.834 5.833"
+      stroke="#10275A"
+      strokeWidth={1.5}
+      fill="none"
+      fillRule="evenodd"
+      strokeDasharray="0,0"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+    />
+  </Svg>
+);
 export {
+  BackButton,
+  NextButton,
   Forward,
   PendingIcon,
   CancelIcon,

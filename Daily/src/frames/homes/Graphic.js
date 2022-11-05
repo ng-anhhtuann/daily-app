@@ -1,7 +1,6 @@
 import React from 'react';
 import {ScrollView, View, Text, StyleSheet, Image} from 'react-native';
-import {useSelector} from 'react-redux';
-import {imgs} from '../../assets';
+import Activity from '../../shared/Activity';
 import Header from '../../shared/Header';
 import Priority from '../../shared/Priority';
 
@@ -21,6 +20,7 @@ const Graphic = () => {
         title={'Your Activity'}
         titleStyle={[styles.activity, styles.marginTop]}
       />
+      <Activity />
     </ScrollView>
   );
 };
@@ -30,7 +30,7 @@ const styles = StyleSheet.create({
     paddingRight: DeviceWidth * 0.05,
     paddingLeft: DeviceWidth * 0.05,
   },
-  marginTop: {marginTop: title.big},
+  marginTop: {marginTop: title.big, marginBottom: title.big},
   marginBottom: {
     marginBottom: title.medium,
   },
