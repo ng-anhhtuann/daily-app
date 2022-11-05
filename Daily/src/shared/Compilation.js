@@ -17,6 +17,7 @@ const Compilation = ({
   numberOfPendingTasks,
   numberOfOnTasks,
 }) => {
+  // @ts-ignore
   const testReducer = useSelector(state => state.testReducer);
   const complete = testReducer.complete;
   const cancel = testReducer.cancel;
