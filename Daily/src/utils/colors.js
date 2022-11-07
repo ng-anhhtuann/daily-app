@@ -33,4 +33,3 @@ export const SECRET = '#7EC8E7';
 export const PRIVATE = '#8F99EB';
 export const PERSONAL = '#E88B8C';
 export const TEXT_FADE = '#8586A9';
-export const BOOST_BG = '#F0F3FA';

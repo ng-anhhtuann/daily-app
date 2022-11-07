@@ -1,5 +1,5 @@
 /* eslint-disable react-native/no-inline-styles */
-import React, {useEffect, useState} from 'react';
+import React, {useState} from 'react';
 import {View, StyleSheet} from 'react-native';
 import {BLUE_HEAVY, WHITE} from '../utils/colors';
 import {DeviceHeight, DeviceWidth} from '../utils/device';
@@ -7,13 +7,6 @@ import DayItem from './DayItem';
 const moment = require('moment');
 const WeekBar = () => {
   var now = moment().isoWeekday() - 1; // 5 - 1 = 4 ( according to pos )
-  const [thisTime, setTt] = useState(now);
-  useEffect(() => {
-    var timer = setInterval(() => setTt(moment().isoWeekday() - 1), 86400000);
-    return function cleanup() {
-      clearInterval(timer);
-    };
-  }, []);
   let dayWeek = [
     {title: 'MO', index: 0},
     {title: 'TU', index: 1},
@@ -24,7 +17,7 @@ const WeekBar = () => {
     {title: 'SU', index: 6},
   ];
   const tempState = dayWeek.map(val => {
-    return thisTime === val.index;
+    return now === val.index;
   });
   const [state, setStates] = useState(tempState);
   return (

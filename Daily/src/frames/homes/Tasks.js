@@ -23,6 +23,7 @@ import SearchEngine from '../../shared/SearchEngine';
 import WeekBar from '../../shared/WeekBar';
 import TaskTitle from '../../shared/TaskTitle';
 import HourTitle from '../../shared/HourTitle';
+import DivideLine from '../../shared/DivideLine';
 import HorizontalTask from '../../shared/HorizontalTask';
 
 const Tasks = () => {
@@ -71,7 +72,7 @@ const Tasks = () => {
         taskCalendarHolder={styles.taskCalendarHolder}
         bigText={styles.bigText}
         calendarHolder={styles.calendarHolder}
-        month={styles.monthText}
+        monthText={styles.monthText}
       />
       <WeekBar />
       <HourTitle
