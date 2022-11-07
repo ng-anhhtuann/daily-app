@@ -14,9 +14,9 @@ function ceilUp(n) {
 }
 const Priority = () => {
   const task = {
-    personal: [2, 5, 3, 1, 4, 7, 0],
-    private: [1, 3, 5, 8, 9, 10, 0],
-    secret: [0, 1, 2, 3, 0, 1, 0],
+    personal: Array.from({length: 7}, () => Math.floor(Math.random() * 20)),
+    private: Array.from({length: 7}, () => Math.floor(Math.random() * 20)),
+    secret: Array.from({length: 7}, () => Math.floor(Math.random() * 20)),
   };
   const week = ['Mo', 'Tu', 'We', 'Th', 'Fr', 'Sa', 'Su'];
   const highPivot = ceilUp(

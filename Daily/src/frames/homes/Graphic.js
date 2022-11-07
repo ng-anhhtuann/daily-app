@@ -5,7 +5,7 @@ import Header from '../../shared/Header';
 import Priority from '../../shared/Priority';
 
 import {NAME_TEXT, WHITE} from '../../utils/colors';
-import {DeviceWidth} from '../../utils/device';
+import {DeviceHeight, DeviceWidth} from '../../utils/device';
 import {title} from '../../utils/typo';
 
 const Graphic = () => {
@@ -21,10 +21,12 @@ const Graphic = () => {
         titleStyle={[styles.activity, styles.marginTop]}
       />
       <Activity />
+      <View style={styles.addingScroll} />
     </ScrollView>
   );
 };
 const styles = StyleSheet.create({
+  addingScroll: {height: DeviceHeight * 0.1},
   container: {
     backgroundColor: WHITE,
     paddingRight: DeviceWidth * 0.05,
