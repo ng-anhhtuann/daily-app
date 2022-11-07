@@ -13,5 +13,11 @@ const monthNames = [
   'December',
 ];
 const today = new Date();
-const month = monthNames[today.getMonth()];
+const monthText = monthNames[today.getMonth()];
+const monthNum = today.getMonth();
 const year = today.getFullYear();
+console.log(year);
+console.log(monthText);
+console.log(monthNum);
+
+export {year, monthText, monthNum, monthNames};

@@ -1,27 +1,36 @@
-import React from 'react';
+import React, {useEffect, useState} from 'react';
 import {View, StyleSheet, Text, TouchableOpacity} from 'react-native';
-import {GREY_WEAK, NAME_TEXT, TEXT_FADE, WHITE} from '../utils/colors';
+import {
+  BOOST_BG,
+  GREY,
+  GREY_LINE,
+  GREY_WEAK,
+  NAME_TEXT,
+  PERSONAL,
+  PRIVATE,
+  SECRET,
+  TEXT_FADE,
+  WHITE,
+} from '../utils/colors';
 import {DeviceHeight, DeviceWidth} from '../utils/device';
 import {space, title} from '../utils/typo';
 import {BackButton, NextButton} from './svgs';
+import {monthNames, monthText, year} from './Date';
+import Booster from './Booster';
+import moment from 'moment';
 const Activity = () => {
-  const monthNames = [
-    'January',
-    'February',
-    'March',
-    'April',
-    'May',
-    'June',
-    'July',
-    'August',
-    'September',
-    'October',
-    'November',
-    'December',
-  ];
-  const today = new Date();
-  const month = monthNames[today.getMonth()];
-  const year = today.getFullYear();
+  const typeArr = [SECRET, PERSONAL];
+  const firstBoosterDayIndex = -9;
+  const listBooster = [];
+  for (var i = 0; i < 10; i++) {
+    listBooster.push({
+      type: typeArr[Math.floor(Math.random() * typeArr.length)],
+      percent: Math.floor(Math.random() * 100),
+    });
+  }
+  var now = moment().isoWeekday();
+  // @ts-ignore
+  var monthIndex = moment().day(now).format('MM') - 1;
   return (
     <View style={styles.activity}>
       <View style={styles.forwardMonth}>
@@ -33,11 +42,30 @@ const Activity = () => {
             fontSize: title.medium,
             color: NAME_TEXT,
           }}>
-          {month} {year}
+          {monthNames[monthIndex]} {moment().day(now).format('yyyy')}
         </Text>
         <TouchableOpacity>
           <NextButton />
         </TouchableOpacity>
+      </View>
+      <View
+        style={{
+          height: '80%',
+          width: '100%',
+          flexDirection: 'row',
+        }}>
+        {listBooster.map((val, i) => {
+          return (
+            <Booster
+              key={i}
+              day={moment()
+                .day(firstBoosterDayIndex + i)
+                .format('DD')}
+              percent={val.percent}
+              type={val.type}
+            />
+          );
+        })}
       </View>
     </View>
   );
@@ -51,6 +79,8 @@ const styles = StyleSheet.create({
     padding: space.aBit,
   },
   forwardMonth: {
+    height: '20%',
+    width: '100%',
     flexDirection: 'row',
     justifyContent: 'space-between',
     padding: space.aBit,
