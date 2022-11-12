@@ -22,7 +22,7 @@ const ScatterChart = ({weekTitleDay, divideTask, highPivot, listOfTag}) => {
       {weekTitleDay.map((val, i) => {
         var heightMeasure = DeviceHeight * 0.35 * 0.75 * 0.85 * 0.85;
         return (
-          <View style={styles.taskBar}>
+          <View style={styles.taskBar} key={i}>
             <Image source={imgs.stribeLine} style={{height: '85%'}} />
             <View
               style={[

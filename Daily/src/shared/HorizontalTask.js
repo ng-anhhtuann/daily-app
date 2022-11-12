@@ -28,6 +28,7 @@ const HorizontalTask = ({timePivot, taskArray}) => {
           taskArray.map((val, i) => {
             return (
               <TaskItem
+                key={i}
                 todoItemStyle={styles.todoItemStyle}
                 titleMerge={
                   i === 0 ? styles.titleMergeComing : styles.titleMergeNotYet
