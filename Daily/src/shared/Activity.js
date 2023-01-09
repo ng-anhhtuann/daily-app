@@ -1,17 +1,6 @@
 import React, {useEffect, useState} from 'react';
 import {View, StyleSheet, Text, TouchableOpacity} from 'react-native';
-import {
-  BOOST_BG,
-  GREY,
-  GREY_LINE,
-  GREY_WEAK,
-  NAME_TEXT,
-  PERSONAL,
-  PRIVATE,
-  SECRET,
-  TEXT_FADE,
-  WHITE,
-} from '../utils/colors';
+import {GREY_WEAK, NAME_TEXT, PERSONAL, SECRET} from '../utils/colors';
 import {DeviceHeight, DeviceWidth} from '../utils/device';
 import {space, title} from '../utils/typo';
 import {BackButton, NextButton} from './svgs';
@@ -48,12 +37,7 @@ const Activity = () => {
           <NextButton />
         </TouchableOpacity>
       </View>
-      <View
-        style={{
-          height: '80%',
-          width: '100%',
-          flexDirection: 'row',
-        }}>
+      <View style={styles.row}>
         {listBooster.map((val, i) => {
           return (
             <Booster
@@ -71,6 +55,11 @@ const Activity = () => {
   );
 };
 const styles = StyleSheet.create({
+  row: {
+    height: '80%',
+    width: '100%',
+    flexDirection: 'row',
+  },
   activity: {
     height: DeviceHeight * 0.35,
     width: DeviceWidth * 0.9,
